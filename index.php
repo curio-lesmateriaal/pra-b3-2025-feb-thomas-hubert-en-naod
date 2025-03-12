@@ -4,10 +4,14 @@
 <head>
     <title></title>
     <?php require_once 'head.php'; ?>
+    
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
     
+        <a href="tast/create.php" class="links">Takensysteem</a>
+
     <div class="container">
     <div class="hero">
             <img src="image/logo-big-v3.png" alt="Pretpark Logo" class="logo">       
@@ -16,8 +20,8 @@
             <p class="welcome-text">
                 Beheer hier alle taken voor het pretpark. 
                 Maak nieuwe taken aan, werk bestaande taken bij en houd overzicht over alle afdelingen.
-            </p>
-            <img src="image/logo-big-v3 (1).png" alt="Pretpark Logo">
+            </p>   
+
         </div>
     </div>
 

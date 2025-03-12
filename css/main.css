@@ -287,4 +287,10 @@ label{
     page-break-after: avoid;
   }
 }
-
+.links {
+  text-align: right;
+  color: #000;
+}
+.welkom-text {
+  text-align: center;
+}
