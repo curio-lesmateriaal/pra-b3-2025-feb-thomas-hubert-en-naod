@@ -10,12 +10,14 @@
     
     <div class="container">
     <div class="hero">
-            <img src="image/logo-big-v3.png" alt="Pretpark Logo" class="logo">
+            <img src="image/logo-big-v3.png" alt="Pretpark Logo" class="logo">       
+
             <h1>Welkom bij het Pretpark Takensysteem</h1>
             <p class="welcome-text">
                 Beheer hier alle taken voor het pretpark. 
                 Maak nieuwe taken aan, werk bestaande taken bij en houd overzicht over alle afdelingen.
             </p>
+            <img src="image/logo-big-v3 (1).png" alt="Pretpark Logo">
         </div>
     </div>
 
