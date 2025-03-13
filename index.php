@@ -11,6 +11,7 @@
 <body>
     
         <a href="task/create.php" class="links">Takensysteem</a>
+        <a href="task/index.php" class="links">Taken overzicht</a>
 
     <div class="container">
     <div class="hero">

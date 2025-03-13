@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" class="button">Taak Opslaan</button>
+                    <button type="submit" class="button"> Taak Opslaan</button>
                     <a href="create.php" class="button">Annuleren</a>
                 </div>
             </form>
