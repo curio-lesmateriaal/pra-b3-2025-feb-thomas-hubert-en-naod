@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="/css/main.css">
     <a href="../index.php" class="links">Terug naar home</a>
+    <a href="done.php" class="links">tasks done</a>
 </head>
 
 <body>
