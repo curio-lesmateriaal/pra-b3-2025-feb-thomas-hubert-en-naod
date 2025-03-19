@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="header">
-        <a href="../index.php" class="links">Terug naar home</a>
+        <a href="index.php" class="links">Terug naar home</a>
             <h1>Afgeronde Taken</h1>
         </div>
 
