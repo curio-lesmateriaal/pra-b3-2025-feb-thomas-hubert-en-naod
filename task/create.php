@@ -9,7 +9,7 @@
 
 <body>
     <div class="container">
-        <a href="../index.php" class="links">Terug naar home</a>
+        <a href="index.phps" class="links">Terug naar home</a>
         <h1>Nieuwe Taak Aanmaken</h1>
 
         <form action="../backend/taskController.php" method="POST">
