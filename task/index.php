@@ -38,7 +38,6 @@
                     <p><?php echo htmlspecialchars($taak['beschrijving']); ?></p>
                     <p>Afdeling: <?php echo htmlspecialchars($taak['afdeling']); ?></p>
                     <p>Deadline: <?php echo date('d-m-Y', strtotime($taak['deadline'])); ?></p>
-                    <a href="edit.php">taak bewerken</a>
                     <div class="task-actions">
                         <form action="../backend/taskController.php" method="POST" style="display: inline-block; margin-right: 10px;">
                             <input type="hidden" name="action" value="update_status">
