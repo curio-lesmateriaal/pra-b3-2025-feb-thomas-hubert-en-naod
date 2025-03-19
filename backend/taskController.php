@@ -72,4 +72,19 @@ if ($action == "delete"){
     header("Location: ../task/index.php");
     exit();
 }
+
+if ($action == "update_status") {
+    $id = $_POST['id'];
+    $status = $_POST['status'];
+    
+    $query = "UPDATE taken SET status = :status WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        ":status" => $status,
+        ":id" => $id
+    ]);
+
+    header("Location: ../task/index.php");
+    exit();
+}
 ?>

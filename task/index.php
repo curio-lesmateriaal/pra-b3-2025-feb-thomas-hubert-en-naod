@@ -6,14 +6,11 @@
     <?php require_once '../head.php'; ?>
     
     <link rel="stylesheet" href="/css/main.css">
-
-   
 </head>
 <body>
     <div class="container">
         <div class="nav-links">
-            <a href="index.php" class="links">Terug naar home</a>
-            <a href="done.php" class="links">tasks done</a>
+            <a href="../index.php" class="links">Terug naar home</a>
         </div>
         <div class="header">
             <h1>Takenoverzicht</h1>
@@ -37,7 +34,16 @@
                     <p>Afdeling: <?php echo htmlspecialchars($taak['afdeling']); ?></p>
                     <p>Deadline: <?php echo date('d-m-Y', strtotime($taak['deadline'])); ?></p>
                     <div class="task-actions">
-                        <form action="../backend/taskController.php" method="POST">
+                        <form action="../backend/taskController.php" method="POST" style="display: inline-block; margin-right: 10px;">
+                            <input type="hidden" name="action" value="update_status">
+                            <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
+                            <select name="status" onchange="this.form.submit()">
+                                <option value="todo" <?php echo $taak['status'] === 'todo' ? 'selected' : ''; ?>>Te doen</option>
+                                <option value="doing" <?php echo $taak['status'] === 'doing' ? 'selected' : ''; ?>>In behandeling</option>
+                                <option value="done" <?php echo $taak['status'] === 'done' ? 'selected' : ''; ?>>Afgerond</option>
+                            </select>
+                        </form>
+                        <form action="../backend/taskController.php" method="POST" style="display: inline-block;">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
                             <button type="submit" class="button" onclick="return confirm('Weet je zeker dat je deze taak wilt verwijderen?')">Verwijderen</button>
