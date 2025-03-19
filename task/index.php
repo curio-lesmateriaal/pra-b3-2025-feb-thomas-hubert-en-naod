@@ -1,74 +1,66 @@
-<?php
-require_once '../backend/conn.php';
-
-// Haal alle taken op
-try {
-    $query = "SELECT * FROM tasks ORDER BY created_at DESC";
-    $statement = $conn->prepare($query);
-    $statement->execute();
-    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    $error = "Er is een fout opgetreden bij het ophalen van de taken: " . $e->getMessage();
-}
-?>
-
 <!doctype html>
 <html lang="nl">
 
 <head>
-    <title>Pretpark Takensysteem - Overzicht</title>
+    <title>Takenoverzicht</title>
     <?php require_once '../head.php'; ?>
+    
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
     <div class="container">
-        <div class="content-wrapper">
-            <div class="nav-link">
-                <a href="../index.php" class="links">Terug naar home</a>
-                <a href="create.php" class="links">Nieuwe taak</a>
-            </div>
+        <div class="nav-links">
+            <a href="../index.php" class="links">Terug naar home</a>
+        </div>
+        <div class="header">
+            <h1>Takenoverzicht</h1>
+        </div>
+
+        <div class="task-columns">
+            <?php
+            require_once '../backend/conn.php';
             
-            <h1>Taken Overzicht</h1>
+            $statussen = [
+                'todo' => 'Te doen',
+                'doing' => 'In behandeling',
+                'done' => 'Afgerond'
+            ];
 
-            <?php if (isset($_GET['success'])): ?>
-                <div class="alert success">
-                    Taak is succesvol toegevoegd!
+            function toonTaakKaart($taak) {
+                ?>
+                <div class="task-card">
+                    <h3><?php echo htmlspecialchars($taak['titel']); ?></h3>
+                    <p><?php echo htmlspecialchars($taak['beschrijving']); ?></p>
+                    <p>Afdeling: <?php echo htmlspecialchars($taak['afdeling']); ?></p>
+                    <p>Deadline: <?php echo date('d-m-Y', strtotime($taak['deadline'])); ?></p>
+                    <div class="task-actions">
+                        <form action="../backend/taskController.php" method="POST">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
+                            <button type="submit" class="button" onclick="return confirm('Weet je zeker dat je deze taak wilt verwijderen?')">Verwijderen</button>
+                        </form>
+                    </div>
                 </div>
-            <?php endif; ?>
+                <?php
+            }
 
-            <?php if (isset($error)): ?>
-                <div class="alert error">
-                    <?php echo htmlspecialchars($error); ?>
+            foreach ($statussen as $status => $titel): ?>
+                <div class="task-column">
+                    <h2><?php echo $titel; ?></h2>
+                    <div class="task-list">
+                        <?php
+                        $query = "SELECT * FROM taken WHERE status = ? ORDER BY deadline ASC";
+                        $statement = $conn->prepare($query);
+                        $statement->execute([$status]);
+                        $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                        foreach($taken as $taak) {
+                            toonTaakKaart($taak);
+                        }
+                        ?>
+                    </div>
                 </div>
-            <?php endif; ?>
-
-            <div class="tasks-grid">
-                <?php if (empty($tasks)): ?>
-                    <p class="no-tasks">Er zijn nog geen taken toegevoegd.</p>
-                <?php else: ?>
-                    <?php foreach ($tasks as $task): ?>
-                        <div class="task-card">
-                            <h3><?php echo htmlspecialchars($task['titel']); ?></h3>
-                            <p class="task-description"><?php echo htmlspecialchars($task['beschrijving']); ?></p>
-                            <div class="task-meta">
-                                <span class="task-afdeling">Afdeling: <?php echo htmlspecialchars($task['afdeling']); ?></span>
-                                <span class="task-status">Status: 
-                                    <?php 
-                                        $status_text = [
-                                            'todo' => 'Te doen',
-                                            'doing' => 'In behandeling',
-                                            'done' => 'Afgerond'
-                                        ];
-                                        echo htmlspecialchars($status_text[$task['status']] ?? $task['status']); 
-                                    ?>
-                                </span>
-                                <span class="task-deadline">Deadline: <?php echo date('d-m-Y', strtotime($task['deadline'])); ?></span>
-                                <span class="task-created">Aangemaakt op: <?php echo date('d-m-Y H:i', strtotime($task['created_at'])); ?></span>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>

@@ -4,23 +4,22 @@
 <head>
     <title>Pretpark Takensysteem</title>
     <?php require_once 'head.php'; ?>
+    
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="content-wrapper">
-            <div class="nav-link">
-                <a href="task/create.php" class="links">Nieuwe taak</a>
-                <a href="task/index.php" class="links">Taken overzicht</a>
-            </div>
-            <h1>Pretpark Takensysteem</h1>
-        </div>
+        <nav class="nav-links">
+            <a href="task/create.php" class="links">nieuwetaken</a>
+            <a href="task/index.php" class="links">Taken overzicht</a>
+            <a href="task/done.php" class="links">Afgeronde Taken</a>
+        </nav>
 
-        <div class="content-wrapper">
-            <div class="hero">
+        <div class="hero">
+            <div class="hero-content">
                 <img src="image/logo-big-v3.png" alt="Pretpark Logo" class="logo">       
-
-                <h2>Welkom bij het Pretpark Takensysteem</h2>
+                <h1>Welkom bij het Pretpark Takensysteem</h1>
                 <p class="welcome-text">
                     Beheer hier alle taken voor het pretpark. 
                     Maak nieuwe taken aan, werk bestaande taken bij en houd overzicht over alle afdelingen.
