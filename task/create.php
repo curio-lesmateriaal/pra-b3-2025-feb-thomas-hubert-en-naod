@@ -2,60 +2,62 @@
 <html lang="nl">
 
 <head>
-    <title></title>
+    <title>Nieuwe Taak</title>
     <?php require_once '../head.php'; ?>
-    <a href="../index.php" class="links">Terug naar home</a>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
+    <div class="container">
+        <a href="../index.php" class="links">Terug naar home</a>
+        <h1>Nieuwe Taak Aanmaken</h1>
 
-<form action="../backend/tasksController.php" method="POST">
-                <input type="hidden" name="action" value="create">
-                
-                <div class="form-group">
-                    <label for="titel">Titel:</label>
-                    <input type="text" id="titel" name="titel" required>
-                </div>
+        <form action="../backend/taskController.php" method="POST">
+            <input type="hidden" name="action" value="create">
+            
+            <div class="form-group">
+                <label for="titel">Titel:</label>
+                <input type="text" id="titel" name="titel" required class="form-input">
+            </div>
 
-                <div class="form-group">
-                    <label for="beschrijving">Beschrijving:</label>
-                    <textarea id="beschrijving" name="beschrijving" required></textarea>
-                </div>
+            <div class="form-group">
+                <label for="beschrijving">Beschrijving:</label>
+                <textarea id="beschrijving" name="beschrijving" required class="form-input"></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="afdeling">Afdeling:</label>
-                    <select id="afdeling" name="afdeling" required>
-                        <option value="">Selecteer een afdeling</option>
-                        <option value="personeel">Personeel</option>
-                        <option value="horeca">Horeca</option>
-                        <option value="techniek">Techniek</option>
-                        <option value="inkoop">Inkoop</option>
-                        <option value="klantenservice">Klantenservice</option>
-                        <option value="groen">Groen</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="afdeling">Afdeling:</label>
+                <select id="afdeling" name="afdeling" required class="form-input">
+                    <option value="">Selecteer een afdeling</option>
+                    <option value="personeel">Personeel</option>
+                    <option value="horeca">Horeca</option>
+                    <option value="techniek">Techniek</option>
+                    <option value="inkoop">Inkoop</option>
+                    <option value="klantenservice">Klantenservice</option>
+                    <option value="groen">Groen</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="status">Status:</label>
-                    <select id="status" name="status" required>
-                        <option value="todo">Te doen</option>
-                        <option value="doing">Doing</option>
-                        <option value="done">Done</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required class="form-input">
+                    <option value="todo">Te doen</option>
+                    <option value="doing">In behandeling</option>
+                    <option value="done">Afgerond</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="deadline">Deadline:</label>
-                    <input type="date" id="deadline" name="deadline" required>
-                </div>
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" required class="form-input">
+            </div>
 
-                <div class="button-group">
-                    <button type="submit" class="button"> Taak Opslaan</button>
-                    <a href="create.php" class="button">Annuleren</a>
-                </div>
-            </form>
-    
-
+            <div class="button-group">
+                <button type="submit" class="button">Taak Opslaan</button>
+                <a href="index.php" class="button">Annuleren</a>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 //Haal de configuratie op
-require_once 'backend/config.php';
+require_once __DIR__ . '/config.php';
 
 //Met behulp van PDO zetten we de connectie op, waarna we met setAttribute de manier van errormeldingen weergeven bepalen.
 $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
