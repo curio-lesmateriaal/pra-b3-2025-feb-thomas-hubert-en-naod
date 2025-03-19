@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <nav class="nav-links">
-            <a href="task/create.php" class="links">nieuwetaken</a>
+            <a href="task/create.php" class="links">nieuwe taken</a>
             <a href="task/index.php" class="links">Taken overzicht</a>
             <a href="task/done.php" class="links">Afgeronde Taken</a>
         </nav>

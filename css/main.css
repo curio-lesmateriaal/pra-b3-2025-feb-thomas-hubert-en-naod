@@ -333,6 +333,8 @@ a.button:hover {
     gap: 4rem;
     margin-top: 2rem;
     min-height: 600px;
+    background-color: lightblue;
+    border-radius: 30px;
 }
 
 .task-column {
@@ -356,6 +358,7 @@ a.button:hover {
 
 .task-card {
     padding: 1.25rem;
+    border: 3px solid #000000;
 }
 
 .task-card h3 {
