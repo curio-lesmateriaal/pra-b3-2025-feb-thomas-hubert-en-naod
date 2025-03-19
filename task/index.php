@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="nav-links">
-            <a href="index.php" class="links">Terug naar home</a>
+            <a href="../index.php" class="links">Terug naar home</a>
             <a href="done.php" class="links">tasks done</a>
         </div>
         <div class="header">
