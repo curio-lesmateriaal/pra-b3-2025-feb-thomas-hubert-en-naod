@@ -14,6 +14,7 @@
 
         <form action="../backend/taskController.php" method="POST">
             <input type="hidden" name="action" value="create">
+            <input type="hidden" name="status" value="todo">
             
             <div class="form-group">
                 <label for="titel">Titel:</label>
@@ -35,15 +36,6 @@
                     <option value="inkoop">Inkoop</option>
                     <option value="klantenservice">Klantenservice</option>
                     <option value="groen">Groen</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <select id="status" name="status" required class="form-input">
-                    <option value="todo">Te doen</option>
-                    <option value="doing">In behandeling</option>
-                    <option value="done">Afgerond</option>
                 </select>
             </div>
 
