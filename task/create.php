@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="nl">
 
@@ -31,7 +32,7 @@
                 <select id="afdeling" name="afdeling" required class="form-input">
                     <option value="">Selecteer een afdeling</option>
                     <option value="personeel">Personeel</option>
-                    <option value="horeca">Horeca</option>
+                    <option value="horeca">Horeca</option>  
                     <option value="techniek">Techniek</option>
                     <option value="inkoop">Inkoop</option>
                     <option value="klantenservice">Klantenservice</option>
