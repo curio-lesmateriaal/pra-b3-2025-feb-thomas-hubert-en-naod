@@ -24,10 +24,8 @@ requireLogin();
 
         <div class="hero">
             <div class="hero-content">
-                <h1>Welkom bij het Takenbeheer</h1>
-                <div class="welcome-text">
-                    <p>Kies hieronder wat u wilt doen:</p>
-                </div>
+                <img src="image/logo-big-v3.png" alt="Pretpark Logo" class="logo">       
+                <h1>Welkom bij het Pretpark Takensysteem</h1>
                 <div class="header-links" >
                     <a href="task/create.php" class="links"  style="color:black">Nieuwe taak</a>
                     <a href="task/index.php" class="links"  style="color:black">Takenoverzicht</a>

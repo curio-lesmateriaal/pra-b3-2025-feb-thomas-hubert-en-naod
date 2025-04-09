@@ -134,7 +134,7 @@
   }
   
   .button:active {
-      background-color: #ff6a6a;
+      background-color: #c6ffb7;
   }
   
   
@@ -413,8 +413,10 @@
   
   .links {
     background-color:rgb(201, 201, 201);
-    border: 2px solid rgb(103, 103, 103);
-    color: #ffc5c5;
+    border: 2px solid rgb(196, 195, 195);
+    color: #c7ffe1;
+    text-align: right;
+
   }
   
   /* Navigatie styling */
@@ -451,6 +453,7 @@
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
+      padding-bottom: 130px;
   }
   
   .logo {
@@ -473,9 +476,11 @@
   
   /* Header links styling */
   .header-links {
-      display: flex;
+
       gap: 1rem;
       color: black;
+      display: flex;
+      padding-left: 150px;
   }
   
   /* Done tasks tabel styling */
