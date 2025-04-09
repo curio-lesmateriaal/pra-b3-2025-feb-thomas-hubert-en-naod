@@ -28,27 +28,28 @@
                 
                 <div class="form-group">
                     <label for="naam">Naam:</label>
-                    <input type="text" id="naam" name="naam" required class="form-input" placeholder="Uw volledige naam">
+                    <input type="text" id="naam" name="naam" required class="form-input" placeholder="naam">
                 </div>
 
                 <div class="form-group">
                     <label for="username">Gebruikersnaam:</label>
-                    <input type="text" id="username" name="username" required class="form-input" placeholder="Kies een gebruikersnaam">
+                    <input type="text" id="username" name="username" required class="form-input" placeholder="gebruikersnaam">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Wachtwoord:</label>
-                    <input type="password" id="password" name="password" required class="form-input" placeholder="Kies een wachtwoord">
+                    <input type="password" id="password" name="password" required class="form-input" placeholder="wachtwoord">
                 </div>
 
                 <div class="form-group">
                     <label for="password_confirm">Wachtwoord bevestigen:</label>
-                    <input type="password" id="password_confirm" name="password_confirm" required class="form-input" placeholder="Bevestig uw wachtwoord">
+                    <input type="password" id="password_confirm" name="password_confirm" required class="form-input" placeholder="Bevestig wachtwoord">
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" class="button">Account Aanmaken</button>
-                    <a href="login.php" class="button" style="color:black">Terug naar Inloggen</a>
+                    <button type="submit" class="button">klaar</button>
+
+                    <a href="login.php" class="button" style="color:black"   text-decoration="none" >Terug naar Inloggen</a>
                 </div>
             </form>
         </div>

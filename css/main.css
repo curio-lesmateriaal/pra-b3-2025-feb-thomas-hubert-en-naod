@@ -11,323 +11,318 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-html{
-    font-size: 16px;
-}
-
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+  
+  /*
+   * Remove text-shadow in selection highlight:
+   * https://twitter.com/miketaylr/status/12228805301
+   *
+   * Vendor-prefixed and regular ::selection selectors cannot be combined:
+   * https://stackoverflow.com/a/16982510/7133471
+   *
+   * Customize the background color to match your design.
+   */
+  
+  ::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  
+  ::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  
+  /*
+   * A better looking default horizontal rule
+   */
+  
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
     padding: 0;
-}
-
-.form-group{
-    margin: 1rem 0;
-}
-
-label{
-    cursor: pointer;
-    display: inline-block;
-    min-width: 140px;
-    vertical-align: top;
-}
-
-.form-input {
-    width: 100%;
-    padding: 8px;
-    font-size: 1rem;
-}
-
-.button-group {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.button {
-    text-decoration: underline;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px 16px;
-}
-
-.button:hover {
+  }
+  
+  /*
+   * Remove the gap between audio, canvas, iframes,
+   * images, videos and the bottom of their containers:
+   * https://github.com/h5bp/html5-boilerplate/issues/440
+   */
+  
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+  
+  /*
+   * Remove default fieldset styles.
+   */
+  
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*
+   * Allow only vertical resizing of textareas.
+   */
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* ==========================================================================
+     Author's custom styles
+     ========================================================================== */
+  
+  html{
+      font-size: 16px;
+  }
+  
+  .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+  }
+  
+  .form-group{
+      margin: 1rem 0;
+  }
+  
+  label{
+      cursor: pointer;
+      display: inline-block;
+      min-width: 140px;
+      vertical-align: top;
+  }
+  
+  .form-input {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+  }
+  
+  .button-group {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    
+  }
+  
+  .button {
+      text-decoration: underline;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 16px;
+  }
+  
+  .button:hover {
+      text-decoration: none;
+  }
+  
+  .button:active {
+      background-color: #ff6a6a;
+  }
+  
+  
+  
+  /* ==========================================================================
+     Helper classes
+     ========================================================================== */
+  
+  /*
+   * Hide visually and from screen readers
+   */
+  
+  .hidden,
+  [hidden] {
+    display: none !important;
+  }
+  
+  /*
+   * Hide only visually, but have it available for screen readers:
+   * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+   *
+   * 1. For long content, line feeds are not interpreted as spaces and small width
+   *    causes content to wrap 1 word per line:
+   *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+   */
+  
+  .sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    /* 1 */
+  }
+  
+  /*
+   * Extends the .sr-only class to allow the element
+   * to be focusable when navigated to via the keyboard:
+   * https://www.drupal.org/node/897638
+   */
+  
+  .sr-only.focusable:active,
+  .sr-only.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto;
+  }
+  
+  /*
+   * Hide visually and from screen readers, but maintain layout
+   */
+  
+  .invisible {
+    visibility: hidden;
+  }
+  
+  /*
+   * Clearfix: contain floats
+   *
+   * For modern browsers
+   * 1. The space content is one way to avoid an Opera bug when the
+   *    `contenteditable` attribute is included anywhere else in the document.
+   *    Otherwise it causes space to appear at the top and bottom of elements
+   *    that receive the `clearfix` class.
+   * 2. The use of `table` rather than `block` is only necessary if using
+   *    `:before` to contain the top-margins of child elements.
+   */
+  
+  .clearfix::before,
+  .clearfix::after {
+    content: " ";
+    display: table;
+  }
+  
+  .clearfix::after {
+    clear: both;
+  }
+  
+  /* ==========================================================================
+     EXAMPLE Media Queries for Responsive Design.
+     These examples override the primary ('mobile first') styles.
+     Modify as content requires.
+     ========================================================================== */
+  
+  @media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+  }
+  
+  @media print,
+    (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 1.25dppx),
+    (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+  }
+  
+  /* ==========================================================================
+     Print styles.
+     Inlined to avoid the additional HTTP request:
+     https://www.phpied.com/delay-loading-your-print-css/
+     ========================================================================== */
+  
+  @media print {
+    *,
+    *::before,
+    *::after {
+      background: #fff !important;
+      color: #000 !important;
+      /* Black prints faster */
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+  
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+  
+    a[href]::after {
+      content: " (" attr(href) ")";
+    }
+  
+    abbr[title]::after {
+      content: " (" attr(title) ")";
+    }
+  
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+      content: "";
+    }
+  
+    pre {
+      white-space: pre-wrap !important;
+    }
+  
+    pre,
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+  
+    /*
+     * Printing Tables:
+     * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+      display: table-header-group;
+    }
+  
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+  
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+  
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+  .links {
+    color: rgb(255, 240, 240);
     text-decoration: none;
-}
-
-.button:active {
-    background-color: #3d8b40;
-}
-
-a.button {
-    background-color: #666;
-}
-
-a.button:hover {
-    background-color: #555;
-}
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.sr-only.focusable:active,
-.sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
+    padding: 5px;
   }
-
-  a,
-  a:visited {
-    text-decoration: underline;
+  
+  .welkom-text {
+    text-align: center;
   }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
-  thead {
-    display: table-header-group;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
-.links {
-  color: #6c757d;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.welkom-text {
-  text-align: center;
-}
-
-.task-columns {
+  
+  .task-columns {
     display: flex;
     justify-content: center;
     gap: 4rem;
@@ -381,147 +376,163 @@ a.button:hover {
     justify-content: flex-end;
 }
 
-.task-actions .button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    text-decoration: underline;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* Header voor task pagina's */
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 2rem 0 3rem 0;
-    padding-bottom: 1rem;
-    gap: 1rem;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-.header .button {
-    padding: 10px 20px;
-    font-weight: 500;
-    text-decoration: underline;
-    background: none;
-    border: none;
-}
-
-.message {
-    text-align: center;
-    padding: 1rem 1.5rem;
-    margin: 0 auto 2rem auto;
-    max-width: 600px;
-    font-size: 1rem;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.links:hover {
-    color: #0d6efd;
-}
-
-/* Navigatie styling */
-.nav-links {
-    text-align: right;
-    padding: 10px 20px;
-    margin: 0;
-}
-
-.links {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-}
-
-.links:hover {
-    text-decoration: underline;
-}
-
-/* Hero sectie styling */
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 100px);
-    padding: 2rem 0;
-}
-
-.hero-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.logo {
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 2rem;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.welcome-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin: 0 auto;
-    max-width: 600px;
-}
-
-/* Header links styling */
-.header-links {
-    display: flex;
-    gap: 1rem;
-}
-
-/* Done tasks tabel styling */
-.done-tasks {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-}
-
-.done-table {
-    width: 100%;
-    max-width: 800px;
-    border-collapse: collapse;
-}
-
-.done-table th,
-.done-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #000;
-}
-
-.done-table th {
-    font-weight: bold;
-}
-
-.done-table .task-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-start;
-    padding: 0.5rem 1rem;
-}
-
-.done-table .task-actions .button {
-    padding: 4px 8px;
-    font-size: 0.9rem;
-}
-
-.no-tasks {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-top: 2rem;
-}
+  
+  /* Header voor task pagina's */
+  .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 2rem 0 3rem 0;
+      padding-bottom: 1rem;
+      gap: 1rem;
+  }
+  
+  .header h1 {
+      margin: 0;
+      font-size: 2rem;
+  }
+  
+  .header .button {
+      padding: 10px 20px;
+      font-weight: 500;
+      text-decoration: underline;
+      background: none;
+      border: none;
+  }
+  
+  .message {
+      text-align: center;
+      padding: 1rem 1.5rem;
+      margin: 0 auto 2rem auto;
+      max-width: 600px;
+      font-size: 1rem;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+  }
+  
+  .links {
+    background-color:rgb(201, 201, 201);
+    border: 2px solid rgb(103, 103, 103);
+    color: #ffc5c5;
+  }
+  
+  /* Navigatie styling */
+  .nav-links {
+      text-align: right;
+      padding: 10px 20px;
+      margin: 0;
+      color: black;
+  }
+  
+  .afdeling-filter a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      padding: 6px 10px;
+      margin: 1px 5px;
+  }
+  
+  .afdeling-filter a {
+      background-color: lightblue;
+      border: 2px solid rgb(227, 248, 255);
+      color: #0e0f0e;
+  }
+  
+  /* Hero sectie styling */
+  .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 100px);
+      padding: 2rem 0;
+  }
+  
+  .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+  }
+  
+  .logo {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 2rem;
+  }
+  
+  .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+  }
+  
+  .welcome-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 600px;
+  }
+  
+  /* Header links styling */
+  .header-links {
+      display: flex;
+      gap: 1rem;
+      color: black;
+  }
+  
+  /* Done tasks tabel styling */
+  .done-tasks {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .done-table {
+      width: 100%;
+      max-width: 800px;
+      border-collapse: collapse;
+  }
+  
+  .done-table th,
+  .done-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #fefefe;
+  }
+  
+  .done-table th {
+      font-weight: bold;
+  }
+  
+  .done-table .task-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      padding: 0.5rem 1rem;
+  }
+  
+  .done-table .task-actions .button {
+      padding: 4px 8px;
+      font-size: 0.9rem;
+  }
+  
+  .no-tasks {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 2rem;
+  }
+  
+  .login-form {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .error {
+      color: red;
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #ffebee;
+      border-radius: 4px;
+  }

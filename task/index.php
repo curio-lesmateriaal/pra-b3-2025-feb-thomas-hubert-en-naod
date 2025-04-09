@@ -14,14 +14,14 @@ requireLogin();
 <body>
     <div class="container">
         <div class="nav-links">
-            <a href="../index.php" class="links" style="color:black">Terug naar home</a>
+            <a href="../index.php" class="links" style="color:black" >Terug naar home</a>
         </div>
         <div class="header">
             <h1>Takenoverzicht</h1>
         </div>
 
         <div class="afdeling-filter">
-            <h3>Filter op afdeling:</h3>
+
             <?php
             $afdelingen = [
                 'personeel' => 'Personeel',
