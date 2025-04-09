@@ -21,7 +21,7 @@ requireLogin();
         </div>
 
         <div class="afdeling-filter">
-
+            <div class="afdeling">
             <?php
             $afdelingen = [
                 'personeel' => 'Personeel',
@@ -31,11 +31,12 @@ requireLogin();
                 'klantenservice' => 'Klantenservice',
                 'groen' => 'Groen'
             ];
-
+            
             foreach ($afdelingen as $value => $label) {
                 echo "<a href='afdeling.php?afdeling={$value}' class='button'>{$label}</a> ";
             }
             ?>
+            </div>
         </div>
 
         <div class="task-columns">

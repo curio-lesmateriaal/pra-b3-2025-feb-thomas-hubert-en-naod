@@ -18,7 +18,8 @@ requireLogin();
             <span class="welcome">Welkom, <?= htmlspecialchars($_SESSION['username']) ?></span>
             <form action="backend/taskController.php" method="post" style="display: inline;">
                 <input type="hidden" name="action" value="logout">
-                <button type="submit" class="links" style="border: none; background: none; cursor: pointer; color:black" >uitloggen</button>
+                <button type="submit" class="links" style="background: none; cursor: pointer; color:black">uitloggen</button>
+                
             </form>
         </div>
 

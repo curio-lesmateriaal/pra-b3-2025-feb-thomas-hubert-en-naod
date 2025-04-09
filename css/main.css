@@ -425,13 +425,19 @@
       padding: 10px 20px;
       margin: 0;
       color: black;
+      background-color: rgb(146, 146, 223);
+      width: 111%;
+      margin-left: -200px;
+      margin-bottom: 50px;
+      padding-right: 200px;
   }
-  
+
   .afdeling-filter a {
       color: rgb(0, 0, 0);
       text-decoration: none;
       padding: 6px 10px;
       margin: 1px 5px;
+
   }
   
   .afdeling-filter a {
@@ -447,6 +453,9 @@
       align-items: center;
       min-height: calc(100vh - 100px);
       padding: 2rem 0;
+      background-color: lightblue;
+      border-radius: 50px;
+      flex-direction: column;
   }
   
   .hero-content {
@@ -481,6 +490,8 @@
       color: black;
       display: flex;
       padding-left: 150px;
+      font-size: 25px;
+      margin-left: -175px;
   }
   
   /* Done tasks tabel styling */
@@ -540,4 +551,13 @@
       padding: 10px;
       background-color: #ffebee;
       border-radius: 4px;
+  }
+  .afdeling{
+    margin-left: 240px;
+    font-size: 25px;
+  }
+  .links{
+    border: #000 solid;
+    border-radius: 10px;
+    margin-left: 50px;
   }
