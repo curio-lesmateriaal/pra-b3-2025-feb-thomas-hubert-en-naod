@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+require_once '../backend/taskController.php';
+requireLogin();
+?>
 <!doctype html>
 <html lang="nl">
 
@@ -17,7 +20,20 @@
         require_once '../backend/conn.php';
         
         $id = $_GET['id'] ?? null;
-        if (!$id || !($taak = $conn->query("SELECT * FROM taken WHERE id = " . intval($id))->fetch(PDO::FETCH_ASSOC))) {
+        if (!$id) {
+            header('Location: index.php');
+            exit();
+        }
+
+        // Haal taak op met gebruikersfilter
+        $stmt = $conn->prepare("SELECT * FROM taken WHERE id = :id AND user = :user");
+        $stmt->execute([
+            ':id' => intval($id),
+            ':user' => $_SESSION['user_id']
+        ]);
+        $taak = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$taak) {
             header('Location: index.php');
             exit();
         }

@@ -1,38 +1,126 @@
 <?php
+session_start();
 require_once __DIR__ . '/conn.php';
 
+// Auth functies
+function isLoggedIn() {
+    return isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+}
+
+function requireLogin() {
+    if (!isLoggedIn()) {
+        header('Location: /login.php');
+        exit();
+    }
+}
+
+// Haal actie op
 $action = $_POST['action'] ?? '';
 
-if($action == "create"){
-    
+// Login, register en logout acties
+if ($action === 'login') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if (empty($username) || empty($password)) {
+        header('Location: ../login.php?error=empty');
+        exit();
+    }
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
+    $stmt->execute([$username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        header('Location: ../login.php?error=invalid');
+        exit();
+    }
+
+    // Vergelijk wachtwoorden (case-sensitive)
+    if (strcmp($password, $user['password']) !== 0) {
+        header('Location: ../login.php?error=invalid');
+        exit();
+    }
+
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['naam'] = $user['naam'];
+    $_SESSION['logged_in'] = true;
+    header('Location: ../index.php');
+    exit();
+}
+
+if ($action === 'register') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $password_confirm = $_POST['password_confirm'] ?? '';
+    $naam = $_POST['naam'] ?? '';
+
+    if (empty($username) || empty($password) || empty($password_confirm) || empty($naam)) {
+        header('Location: ../register.php?error=empty');
+        exit();
+    }
+
+    if (strcmp($password, $password_confirm) !== 0) {
+        header('Location: ../register.php?error=password');
+        exit();
+    }
+
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? LIMIT 1");
+    $stmt->execute([$username]);
+    if ($stmt->fetch()) {
+        header('Location: ../register.php?error=exists');
+        exit();
+    }
+
+    $stmt = $conn->prepare("INSERT INTO users (username, password, naam) VALUES (?, ?, ?)");
+    if ($stmt->execute([$username, $password, $naam])) {
+        $_SESSION['user_id'] = $conn->lastInsertId();
+        $_SESSION['username'] = $username;
+        $_SESSION['naam'] = $naam;
+        $_SESSION['logged_in'] = true;
+        header('Location: ../index.php');
+    } else {
+        header('Location: ../register.php?error=unknown');
+    }
+    exit();
+}
+
+if ($action === 'logout') {
+    session_destroy();
+    header('Location: /login.php');
+    exit();
+}
+
+// Controleer login voor taak acties
+requireLogin();
+
+// Taak acties
+if($action === "create") {
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
     $afdeling = $_POST['afdeling'];
     $status = $_POST['status'];
     $deadline = $_POST['deadline'];
 
-    //2. Query
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline)
-              VALUES (:titel, :beschrijving, :afdeling, :status, :deadline)";
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user)
+              VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user)";
 
-    //3. Prepare
     $statement = $conn->prepare($query);
-
-    //4. Execute
     $statement->execute([
         ":titel" => $titel,
         ":beschrijving" => $beschrijving,
         ":afdeling" => $afdeling,
         ":status" => $status,
-        ":deadline" => $deadline
+        ":deadline" => $deadline,
+        ":user" => $_SESSION['user_id']
     ]);
 
-    //5. Redirect naar het takenoverzicht
     header("Location: ../task/index.php");
     exit();
 }
 
-if($action == "edit"){
+if($action === "edit") {
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
     $afdeling = $_POST['afdeling'];
@@ -46,7 +134,7 @@ if($action == "edit"){
                   afdeling = :afdeling, 
                   status = :status, 
                   deadline = :deadline
-              WHERE id = :id";
+              WHERE id = :id AND user = :user";
 
     $statement = $conn->prepare($query);
     $statement->execute([
@@ -55,33 +143,38 @@ if($action == "edit"){
         ":afdeling" => $afdeling,
         ":status" => $status,
         ":deadline" => $deadline,
-        ":id" => $id
+        ":id" => $id,
+        ":user" => $_SESSION['user_id']
     ]);
 
     header("Location: ../task/index.php");
     exit();
 }
 
-if ($action == "delete"){
+if ($action === "delete") {
     $id = $_POST['id'];
     
-    $query = "DELETE FROM taken WHERE id = :id";
+    $query = "DELETE FROM taken WHERE id = :id AND user = :user";
     $statement = $conn->prepare($query);
-    $statement->execute([":id" => $id]);
+    $statement->execute([
+        ":id" => $id,
+        ":user" => $_SESSION['user_id']
+    ]);
 
     header("Location: ../task/index.php");
     exit();
 }
 
-if ($action == "update_status") {
+if ($action === "update_status") {
     $id = $_POST['id'];
     $status = $_POST['status'];
     
-    $query = "UPDATE taken SET status = :status WHERE id = :id";
+    $query = "UPDATE taken SET status = :status WHERE id = :id AND user = :user";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":status" => $status,
-        ":id" => $id
+        ":id" => $id,
+        ":user" => $_SESSION['user_id']
     ]);
 
     header("Location: ../task/index.php");

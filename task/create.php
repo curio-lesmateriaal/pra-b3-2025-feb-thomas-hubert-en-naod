@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+require_once '../backend/taskController.php';
+requireLogin();
+?>
 <!doctype html>
 <html lang="nl">
 
@@ -32,7 +35,7 @@
                 <select id="afdeling" name="afdeling" required class="form-input">
                     <option value="">Selecteer een afdeling</option>
                     <option value="personeel">Personeel</option>
-                    <option value="horeca">Horeca</option>  
+                    <option value="horeca">Horeca</option>
                     <option value="techniek">Techniek</option>
                     <option value="inkoop">Inkoop</option>
                     <option value="klantenservice">Klantenservice</option>
@@ -47,7 +50,7 @@
 
             <div class="button-group">
                 <button type="submit" class="button">Taak Opslaan</button>
-                <a href="index.php" class="button">Annuleren</a>
+                <a href="../index.php" class="button" style="color:black">Annuleren</a>
             </div>
         </form>
     </div>
