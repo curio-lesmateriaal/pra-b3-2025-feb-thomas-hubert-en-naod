@@ -17,8 +17,11 @@ requireLogin();
             <a href="../index.php" class="links"  style="color:black">Terug naar home</a>
             <h1>Afgeronde Taken</h1>
         </div>
-
+        <div class="foto">
+        <img src="../image/logo-big-v3.png" alt="Pretpark Logo" class="logo"> 
+        </div>
         <div class="done-tasks">
+
             <?php
             require_once '../backend/conn.php';
 
@@ -52,13 +55,18 @@ requireLogin();
                                         <input type="hidden" name="action" value="update_status">
                                         <input type="hidden" name="id" value="<?= $taak['id'] ?>">
                                         <input type="hidden" name="status" value="todo">
+                                        <div class="terug">
                                         <button type="submit" class="button">Terugzetten</button>
+                                        </div>
                                     </form>
                                     <form action="../backend/taskController.php" method="POST" style="display: inline;">
                                         <input type="hidden" name="action" value="delete">
                                         <input type="hidden" name="id" value="<?= $taak['id'] ?>">
+                                        <div class="delete">
                                         <button type="submit" class="button" onclick="return confirm('Weet je zeker dat je deze taak wilt verwijderen?')">Verwijderen</button>
+                                        </div>
                                     </form>
+                                    
                                 </td>
                             </tr>
                         <?php endforeach; ?>
