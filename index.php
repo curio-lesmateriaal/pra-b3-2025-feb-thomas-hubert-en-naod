@@ -18,12 +18,13 @@ requireLogin();
             <span class="welcome">Welkom, <?= htmlspecialchars($_SESSION['username']) ?></span>
             <form action="backend/taskController.php" method="post" style="display: inline;">
                 <input type="hidden" name="action" value="logout">
-                <button type="submit" class="links" style="background: none; cursor: pointer; color:black">uitloggen</button>
+                <button type="submit" class="links" style="background: none; cursor: pointer; color:black; font-size: 30px">uitloggen</button>
                 
             </form>
         </div>
 
         <div class="hero">
+            <img src="image/logo-big-v3.png">
             <div class="hero-content">
                 <img src="image/logo-big-v3.png" alt="Pretpark Logo" class="logo">       
                 <h1>Welkom bij het Pretpark Takensysteem</h1>
