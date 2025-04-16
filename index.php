@@ -31,7 +31,6 @@ requireLogin();
                     <a href="task/create.php" class="links"  style="color:black">Nieuwe taak</a>
                     <a href="task/index.php" class="links"  style="color:black">Takenoverzicht</a>
                     <a href="task/done.php" class="links"  style="color:black">Afgeronde taken</a>
-                    <a href="task/mijn_taken.php" class="links"  style="color:black">Mijn taken</a>
                 </div>
             </div>
         </div>
