@@ -12,6 +12,7 @@ requireLogin();
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+    
     <div class="container">
         <div class="nav-links">
             <a href="../index.php" class="links" style="color:black" >Terug naar home</a>

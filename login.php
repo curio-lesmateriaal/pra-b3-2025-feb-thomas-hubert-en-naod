@@ -5,7 +5,7 @@
     <?php require_once 'head.php'; ?>
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body >
     <div class="container">
         <div class="login-form">
             <h1>Inloggen</h1>
@@ -39,10 +39,7 @@
                     <button type="submit" class="button">Inloggen</button>
                 </div>
             </form>
-           
-            <div class="register-link">
-                <p>Nog geen account? <a href="register.php" class="links" style="color:black">Maak er hier een aan</a></p>
-            </div>
+      
         </div>
     </div>
 </body>

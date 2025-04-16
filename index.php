@@ -18,6 +18,7 @@ requireLogin();
             <span class="welcome">Welkom, <?= htmlspecialchars($_SESSION['username']) ?></span>
             <form action="backend/taskController.php" method="post" style="display: inline;">
                 <input type="hidden" name="action" value="logout">
+                
                 <button type="submit" class="links" style="border: none; background: none; cursor: pointer; color:black" >uitloggen</button>
             </form>
         </div>
@@ -30,6 +31,7 @@ requireLogin();
                     <a href="task/create.php" class="links"  style="color:black">Nieuwe taak</a>
                     <a href="task/index.php" class="links"  style="color:black">Takenoverzicht</a>
                     <a href="task/done.php" class="links"  style="color:black">Afgeronde taken</a>
+                    <a href="task/mijn_taken.php" class="links"  style="color:black">Mijn taken</a>
                 </div>
             </div>
         </div>
