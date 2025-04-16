@@ -17,7 +17,7 @@ function requireLogin() {
 // Haal actie op
 $action = $_POST['action'] ?? '';
 
-// Login en logout acties
+// Login, register en logout acties
 if ($action === 'login') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -47,6 +47,42 @@ if ($action === 'login') {
     $_SESSION['naam'] = $user['naam'];
     $_SESSION['logged_in'] = true;
     header('Location: ../index.php');
+    exit();
+}
+
+if ($action === 'register') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $password_confirm = $_POST['password_confirm'] ?? '';
+    $naam = $_POST['naam'] ?? '';
+
+    if (empty($username) || empty($password) || empty($password_confirm) || empty($naam)) {
+        header('Location: ../register.php?error=empty');
+        exit();
+    }
+
+    if (strcmp($password, $password_confirm) !== 0) {
+        header('Location: ../register.php?error=password');
+        exit();
+    }
+
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? LIMIT 1");
+    $stmt->execute([$username]);
+    if ($stmt->fetch()) {
+        header('Location: ../register.php?error=exists');
+        exit();
+    }
+
+    $stmt = $conn->prepare("INSERT INTO users (username, password, naam) VALUES (?, ?, ?)");
+    if ($stmt->execute([$username, $password, $naam])) {
+        $_SESSION['user_id'] = $conn->lastInsertId();
+        $_SESSION['username'] = $username;
+        $_SESSION['naam'] = $naam;
+        $_SESSION['logged_in'] = true;
+        header('Location: ../index.php');
+    } else {
+        header('Location: ../register.php?error=unknown');
+    }
     exit();
 }
 
