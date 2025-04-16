@@ -127,7 +127,6 @@
       border: none;
       cursor: pointer;
       padding: 8px 16px;
-      border-radius: 1px solid black;
   }
   
   .button:hover {
@@ -427,13 +426,19 @@
       padding: 10px 20px;
       margin: 0;
       color: black;
+      background-color: rgb(146, 146, 223);
+      width: 111%;
+      margin-left: -200px;
+      margin-bottom: 50px;
+      padding-right: 200px;
   }
-  
+
   .afdeling-filter a {
       color: rgb(0, 0, 0);
       text-decoration: none;
       padding: 6px 10px;
       margin: 1px 5px;
+
   }
   
   .afdeling-filter a {
@@ -449,11 +454,14 @@
       align-items: center;
       min-height: calc(100vh - 100px);
       padding: 2rem 0;
+      background-color: lightblue;
+      border-radius: 50px;
+      flex-direction: column;
   }
   
   .hero-content {
       text-align: center;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding-bottom: 130px;
   }
@@ -483,6 +491,10 @@
       color: black;
       display: flex;
       padding-left: 150px;
+      font-size: 25px;
+      font-size: 25px;
+      margin-left: -175px;
+
   }
   
   /* Done tasks tabel styling */
@@ -490,12 +502,18 @@
       margin-top: 2rem;
       display: flex;
       justify-content: center;
+      font-size: 20px;
+      background-color: lightblue;
+      padding-top: 25px;
   }
   
   .done-table {
       width: 100%;
       max-width: 800px;
       border-collapse: collapse;
+      background-color: lightblue;
+      border:#000 solid;
+
   }
   
   .done-table th,
@@ -543,3 +561,28 @@
       background-color: #ffebee;
       border-radius: 4px;
   }
+  .afdeling{
+    margin-left: 240px;
+    font-size: 25px;
+  }
+  .links{
+    border: #000 solid;
+    border-radius: 10px;
+    margin-left: 50px;
+  }
+  .terug{
+    margin-top: -12px;
+    font-size: 20px;
+  }
+  .delete{
+    margin-top: -12px;
+    padding-bottom: 9px;
+    font-size: 20px;
+  }
+.foto{
+  margin-left: 450px;
+}
+.welcome{
+  font-size: 30px;
+}
+
