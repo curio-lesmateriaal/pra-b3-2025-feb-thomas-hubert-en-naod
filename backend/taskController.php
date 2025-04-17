@@ -2,7 +2,7 @@
 // Start een nieuwe of hervat een bestaande sessie
 session_start();
 // Laad de database connectie
-require_once __DIR__ . '/conn.php';
+require_once __DIR__ . 'backend/conn.php';
 
 //====================================
 // AUTHENTICATIE FUNCTIES

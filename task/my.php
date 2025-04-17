@@ -55,7 +55,7 @@ requireLogin();
                     <tbody>
                         <?php foreach($taken as $taak): ?>
                             <tr>
-                                <!-- Toon taakgegevens 
+                                <!-- Toon taakgegevens -->
                                 <td><?= htmlspecialchars($taak['titel']) ?></td>
                                 <td><?= htmlspecialchars($taak['beschrijving']) ?></td>
                                 <td><?= htmlspecialchars($taak['afdeling']) ?></td>

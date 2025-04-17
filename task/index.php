@@ -26,22 +26,12 @@ requireLogin();
         <!-- Afdeling filter sectie -->
         <div class="afdeling-filter">
             <div class="afdeling">
-            <?php
-            // Array met alle beschikbare afdelingen
-            $afdelingen = [
-                'personeel' => 'Personeel',
-                'horeca' => 'Horeca',
-                'techniek' => 'Techniek',
-                'inkoop' => 'Inkoop',
-                'klantenservice' => 'Klantenservice',
-                'groen' => 'Groen'
-            ];
-            
-            // Maak voor elke afdeling een filter knop
-            foreach ($afdelingen as $value => $label) {
-                echo "<a href='afdeling.php?afdeling={$value}' class='button'>{$label}</a> ";
-            }
-            ?>
+                <a href="afdeling.php?afdeling=personeel" class="button">Personeel</a>
+                <a href="afdeling.php?afdeling=horeca" class="button">Horeca</a>
+                <a href="afdeling.php?afdeling=techniek" class="button">Techniek</a>
+                <a href="afdeling.php?afdeling=inkoop" class="button">Inkoop</a>
+                <a href="afdeling.php?afdeling=klantenservice" class="button">Klantenservice</a>
+                <a href="afdeling.php?afdeling=groen" class="button">Groen</a>
             </div>
         </div>
 
